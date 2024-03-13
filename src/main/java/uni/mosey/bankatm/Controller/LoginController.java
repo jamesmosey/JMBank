@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import uni.mosey.bankatm.Model.BankAccount;
 import uni.mosey.bankatm.Model.DataSingleton;
 import uni.mosey.bankatm.Model.SceneSwitch;
 
@@ -38,18 +39,18 @@ public class LoginController {
     DataSingleton data = DataSingleton.getInstance();
 
 
-    private Map<String, String> accountPasswordMap = new HashMap<>();
+    private final Map<String, BankAccount> accountMap = new HashMap<>();
     private String currentAccount;
 
     public LoginController() {
         // Initialize the account-password mapping
-        accountPasswordMap.put("1234", "4321");
-        accountPasswordMap.put("0420", "0240");
-        accountPasswordMap.put("1351", "1531");
+        accountMap.put("1234", new BankAccount("Alice", "4321"));
+        accountMap.put("0420", new BankAccount("Bob", "0240"));
+        accountMap.put("1351", new BankAccount("Charlie", "1531"));
     }
 
     @FXML
-    private void clearInput(ActionEvent e) {
+    private void clearInput() {
         usernameTextField.clear();
         passwordTextField.clear();
     }
@@ -87,7 +88,9 @@ public class LoginController {
             }
 
             // Check if input is a valid account number
-            if (accountPasswordMap.containsKey(accountInput)) {
+            if (accountMap.containsKey(accountInput)) {
+                // Set the username to be stored
+                DataSingleton.getInstance().setUsername(accountInput);
                 // Hide the account number TextField
                 usernameTextField.setVisible(false);
                 // Show the PIN number TextField
@@ -115,7 +118,8 @@ public class LoginController {
             }
 
             // Check if the PIN matches the current account
-            if (accountPasswordMap.get(currentAccount).equals(pinInput)) {
+            String correctPassword = accountMap.get(currentAccount).getPassword();
+            if (correctPassword.equals(pinInput)) {
                 new SceneSwitch(loginPageAnchorPane, "view/dashboard.fxml");
             } else {
                 userErrorLabel.setText("Invalid PIN number. Please try again.");
@@ -124,4 +128,5 @@ public class LoginController {
             }
         }
     }
+
 }

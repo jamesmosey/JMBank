@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import uni.mosey.bankatm.Model.AccountManager;
+import uni.mosey.bankatm.Model.BankAccount;
 import uni.mosey.bankatm.Model.DataSingleton;
 import uni.mosey.bankatm.Model.SceneSwitch;
 
@@ -18,17 +20,18 @@ public class DashboardController implements Initializable {
     @FXML
     private Label greetingLabel;
 
-    /* Gets the username that was input on the login page and
-    stores it in the variable 'data', so it can then be displayed
-    with a welcome message */
-    DataSingleton data = DataSingleton.getInstance();
+    private final AccountManager accountManager = AccountManager.getInstance();
+
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        greetingLabel.setText("Welcome back, " + data.getUsername());
+        String loggedInUsername = DataSingleton.getInstance().getUsername();
+        BankAccount loggedInAccount = accountManager.getAccountMap().get(loggedInUsername);
+        String loggedInName = loggedInAccount.getName();
+        greetingLabel.setText("Welcome back, " + loggedInName);
     }
 
-    @FXML   // Uses SceneSwitch to change to logout page when logout button is clicked
+    @FXML
     void userLogout() throws IOException {
         new SceneSwitch(dashboardAnchorPane, "view/logout-page.fxml");
     }
-
 }
