@@ -1,12 +1,10 @@
 package uni.mosey.bankatm.Controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import uni.mosey.bankatm.Model.BankAccount;
 import uni.mosey.bankatm.Model.DataSingleton;
 import uni.mosey.bankatm.Model.SceneSwitch;
@@ -19,8 +17,6 @@ public class LoginController {
 
     @FXML
     private Label userErrorLabel;
-    @FXML
-    private Label passErrorLabel;
     @FXML
     private Label loginLabel;
     @FXML
@@ -38,17 +34,19 @@ public class LoginController {
     // Uses DataSingleton class to handle any data communication between scenes
     DataSingleton data = DataSingleton.getInstance();
 
-
+    // Creating the HashMap for storing relations between Accounts + Passwords
     private final Map<String, BankAccount> accountMap = new HashMap<>();
+    // Stores the name of the person currently logged in as a string
     private String currentAccount;
 
     public LoginController() {
         // Initialize the account-password mapping
-        accountMap.put("1234", new BankAccount("Alice", "4321"));
-        accountMap.put("0420", new BankAccount("Bob", "0240"));
-        accountMap.put("1351", new BankAccount("Charlie", "1531"));
+        accountMap.put("1234", new BankAccount("Alice", "4321", 1000.00));
+        accountMap.put("0420", new BankAccount("Bob", "0240", 2000.00));
+        accountMap.put("1351", new BankAccount("Charlie", "1531", 3000.00));
     }
 
+    // Method for the CLEAR button, clears all current inputs
     @FXML
     private void clearInput() {
         usernameTextField.clear();
@@ -93,7 +91,7 @@ public class LoginController {
                 DataSingleton.getInstance().setUsername(accountInput);
                 // Hide the account number TextField
                 usernameTextField.setVisible(false);
-                // Show the PIN number TextField
+                // Show the PIN TextField
                 passwordTextField.setVisible(true);
                 // Show the PIN label
                 inputLabel1.setVisible(true);

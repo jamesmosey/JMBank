@@ -7,10 +7,10 @@ public class AccountManager {
     private final Map<String, BankAccount> accountMap = new HashMap<>();
 
     private AccountManager() {
-        // Initialize the account map with sample data
-        accountMap.put("1234", new BankAccount("Alice", "4321"));
-        accountMap.put("0420", new BankAccount("Bob", "0240"));
-        accountMap.put("1351", new BankAccount("Charlie", "1531"));
+        // Initialize the account hashmap with sample data
+        accountMap.put("1234", new BankAccount("Alice", "4321", 1000.00));
+        accountMap.put("0420", new BankAccount("Bob", "0240", 2000.00));
+        accountMap.put("1351", new BankAccount("Charlie", "1531", 3000.00));
     }
 
     public static AccountManager getInstance() {
