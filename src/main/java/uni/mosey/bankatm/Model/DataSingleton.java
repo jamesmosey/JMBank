@@ -2,7 +2,8 @@ package uni.mosey.bankatm.Model;
 
 public class DataSingleton {
 
-    //Creating the initial data handler object and username variable
+    // Creating the initial data handler object and username variable
+    // In this project I use it to pass login data between scenes
     private static final DataSingleton instance = new DataSingleton();
     private String username;
 

@@ -3,17 +3,56 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="logoutAnchorPane" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.mosey.bankatm.Controller.LogoutController">
-   <children>
-      <Label layoutX="153.0" layoutY="69.0" text="Are you sure you wish&#10;to sign out?" textAlignment="CENTER">
-         <font>
-            <Font size="51.0" />
-         </font>
-      </Label>
-      <Button fx:id="signOutBtn" layoutX="153.0" layoutY="355.0" mnemonicParsing="false" onAction="#userSignOut" prefHeight="91.0" prefWidth="186.0" text="Sign out" />
-      <Button fx:id="signOutExitBtn" layoutX="462.0" layoutY="355.0" mnemonicParsing="false" onAction="#userSignOutQuit" prefHeight="91.0" prefWidth="186.0" text="Sign out &amp; quit" />
-      <Button fx:id="cancelBtn" layoutX="307.0" layoutY="544.0" mnemonicParsing="false" onAction="#cancelSignOut" prefHeight="91.0" prefWidth="186.0" text="Cancel" />
-   </children>
+<AnchorPane fx:id="logoutAnchorPane" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.mosey.bankatm.Controller.LogoutController">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bdf4ff" height="514.0" layoutX="29.0" layoutY="262.0" stroke="BLACK"
+              strokeType="INSIDE" width="740.0"/>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" height="237.0" stroke="TRANSPARENT" strokeType="INSIDE" width="800.0">
+      <fill>
+         <LinearGradient>
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.12941177189350128" green="1.0" blue="0.9411764740943909"/>
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="0.20392157137393951" green="1.0" blue="0.4431372582912445"/>
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </fill>
+   </Rectangle>
+   <Label fx:id="signoutLabel" layoutX="153.0" layoutY="52.0" text="Are you sure you wish&#10;to sign out?"
+          textAlignment="CENTER">
+      <font>
+         <Font name="System Bold" size="51.0"/>
+      </font>
+   </Label>
+   <Button fx:id="signOutBtn" layoutX="58.0" layoutY="337.0" mnemonicParsing="false" onAction="#userSignOut"
+           prefHeight="148.0" prefWidth="266.0" text="Sign out">
+      <font>
+         <Font size="32.0"/>
+      </font>
+   </Button>
+   <Button fx:id="signOutExitBtn" layoutX="471.0" layoutY="337.0" mnemonicParsing="false" onAction="#userSignOutQuit"
+           prefHeight="148.0" prefWidth="266.0" text="Sign out &amp; quit">
+      <font>
+         <Font size="32.0"/>
+      </font>
+   </Button>
+   <Button fx:id="cancelBtn" layoutX="268.0" layoutY="560.0" mnemonicParsing="false" onAction="#cancelSignOut"
+           prefHeight="148.0" prefWidth="266.0" text="Cancel">
+      <font>
+         <Font size="32.0"/>
+      </font>
+   </Button>
 </AnchorPane>

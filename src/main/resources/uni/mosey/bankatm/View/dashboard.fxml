@@ -4,41 +4,98 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="dashboardAnchorPane" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.mosey.bankatm.Controller.DashboardController">
-   <children>
-      <Button layoutX="36.0" layoutY="734.0" mnemonicParsing="false" onAction="#userLogout" prefHeight="37.0" prefWidth="91.0" text="Logout" />
-      <Button layoutX="36.0" layoutY="305.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="91.0" text="Dashboard" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="673.0" layoutY="127.0" stroke="TRANSPARENT" strokeType="INSIDE" width="170.0">
+         <fill>
+            <LinearGradient>
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.12941177189350128" green="1.0" blue="0.9411764740943909" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9966442953020134">
+                     <color>
+                        <Color red="0.20370370149612427" green="1.0" blue="0.442592591047287" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.20370370149612427" green="1.0" blue="0.442592591047287" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="128.0" stroke="TRANSPARENT" strokeType="INSIDE" width="800.0">
+         <fill>
+            <LinearGradient>
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.12941177189350128" green="1.0" blue="0.9411764740943909" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9966442953020134">
+                     <color>
+                        <Color red="0.20370370149612427" green="1.0" blue="0.442592591047287" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.20370370149612427" green="1.0" blue="0.442592591047287" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bdf4ff" height="658.0" layoutX="177.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="614.0" />
+      <Button fx:id="logoutbtn" layoutX="15.0" layoutY="740.0" mnemonicParsing="false" onAction="#userLogout" prefHeight="37.0" prefWidth="141.0" text="Logout" />
       <Label fx:id="greetingLabel" layoutX="14.0" layoutY="14.0" prefHeight="94.0" prefWidth="663.0">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Button layoutX="36.0" layoutY="363.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="91.0" text="Transactions" />
-      <Button layoutX="36.0" layoutY="420.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="91.0" text="Account" />
-      <Button fx:id="depositBtn" layoutX="254.0" layoutY="420.0" mnemonicParsing="false" onAction="#depositClick" prefHeight="37.0" prefWidth="153.0" text="Deposit" />
-      <Button fx:id="withdrawBtn" layoutX="534.0" layoutY="420.0" mnemonicParsing="false" onAction="#withdrawClick" prefHeight="37.0" prefWidth="153.0" text="Withraw" />
-      <TextField fx:id="depositNum" layoutX="254.0" layoutY="379.0" prefHeight="25.0" prefWidth="153.0" />
-      <Label layoutX="264.0" layoutY="339.0" prefHeight="25.0" prefWidth="133.0" text="Enter Deposit Amount" textAlignment="JUSTIFY">
+      <Button fx:id="depositbtn" layoutX="279.0" layoutY="714.0" mnemonicParsing="false" onAction="#depositClick" prefHeight="52.0" prefWidth="170.0" text="Deposit" />
+      <Button fx:id="withdrawbtn" layoutX="519.0" layoutY="714.0" mnemonicParsing="false" onAction="#withdrawClick" prefHeight="52.0" prefWidth="170.0" text="Withraw" />
+      <TextField fx:id="inputField" layoutX="231.0" layoutY="249.0" prefHeight="45.0" prefWidth="507.0">
          <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="withdrawNum" layoutX="534.0" layoutY="379.0" prefHeight="25.0" prefWidth="153.0" />
-      <Label layoutX="534.0" layoutY="339.0" prefHeight="25.0" prefWidth="153.0" text="Enter Withdrawal Amount">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="balanceLabel" layoutX="493.0" layoutY="241.0" prefHeight="45.0" prefWidth="236.0">
+            <Font size="18.0" />
+         </font></TextField>
+      <Label fx:id="balanceLabel" layoutX="478.0" layoutY="159.0" prefHeight="45.0" prefWidth="262.0">
          <font>
             <Font size="30.0" />
          </font></Label>
-      <Label layoutX="254.0" layoutY="241.0" prefHeight="45.0" prefWidth="245.0" text="Current Balance: £">
+      <Label layoutX="233.0" layoutY="159.0" prefHeight="45.0" prefWidth="245.0" text="Current Balance: £">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-   </children>
+      <Label fx:id="msgLabel" layoutX="233.0" layoutY="215.0" prefHeight="25.0" prefWidth="432.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="oneBtn" layoutX="278.0" layoutY="320.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text="1" />
+      <Button fx:id="twoBtn" layoutX="449.0" layoutY="320.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text="2" />
+      <Button fx:id="threeBtn" layoutX="622.0" layoutY="320.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text="3" />
+      <Button fx:id="fourBtn" layoutX="278.0" layoutY="419.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text="4" />
+      <Button fx:id="fiveBtn" layoutX="449.0" layoutY="419.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text="5" />
+      <Button fx:id="sixBtn" layoutX="622.0" layoutY="419.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text="6" />
+      <Button fx:id="sevenBtn" layoutX="278.0" layoutY="521.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text="7" />
+      <Button fx:id="nineBtn" layoutX="622.0" layoutY="521.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text="9" />
+      <Button fx:id="eightBtn" layoutX="449.0" layoutY="521.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text="8" />
+      <Button fx:id="zeroBtn" layoutX="278.0" layoutY="618.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text="0" />
+      <Button fx:id="clearbtn" layoutX="622.0" layoutY="618.0" mnemonicParsing="false" onAction="#clearInputField" prefHeight="70.0" prefWidth="70.0" text="Clear" />
+      <Button fx:id="dotBtn" layoutX="449.0" layoutY="618.0" mnemonicParsing="false" onAction="#dashboardNumberButton" prefHeight="70.0" prefWidth="70.0" text=".">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
 </AnchorPane>

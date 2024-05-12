@@ -1,9 +1,11 @@
 package uni.mosey.bankatm.Controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import uni.mosey.bankatm.Model.BankAccount;
 import uni.mosey.bankatm.Model.DataSingleton;
@@ -15,6 +17,21 @@ import java.util.Map;
 
 public class LoginController {
 
+    public ImageView loginImage;
+    public Button oneBtn;
+    public Button twoBtn;
+    public Button threeBtn;
+    public Button fourBtn;
+    public Button fiveBtn;
+    public Button sixBtn;
+    public Button sevenBtn;
+    public Button nineBtn;
+    public Button eightBtn;
+    public Button zeroBtn;
+    public Button confirmbtn;
+    public Button clearbtn;
+    public Button confirmBtn;
+    public Button clearBtn;
     @FXML
     private Label userErrorLabel;
     @FXML
@@ -25,16 +42,12 @@ public class LoginController {
     private Label inputLabel;
     @FXML
     private TextField usernameTextField;
-
     @FXML
     private TextField passwordTextField;
     @FXML
     private AnchorPane loginPageAnchorPane;
 
-    // Uses DataSingleton class to handle any data communication between scenes
-    DataSingleton data = DataSingleton.getInstance();
-
-    // Creating the HashMap for storing relations between Accounts + Passwords
+    // Creating the HashMap for storing relations between Accounts + Passwords + Initial balances
     private final Map<String, BankAccount> accountMap = new HashMap<>();
     // Stores the name of the person currently logged in as a string
     private String currentAccount;
@@ -54,7 +67,7 @@ public class LoginController {
     }
 
     @FXML
-    private void handleNumberButton(javafx.event.ActionEvent event) {
+    private void handleNumberButton(ActionEvent event) {
         Button button = (Button) event.getSource();
         String buttonText = button.getText();
 

@@ -6,20 +6,39 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="loginPageAnchorPane" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.mosey.bankatm.Controller.LoginController">
-   <children>
-      <Rectangle arcWidth="5.0" fill="#1f93ff00" height="568.0" layoutX="416.0" layoutY="147.0" stroke="BLACK" strokeType="INSIDE" width="346.0" />
-      <ImageView fx:id="loginImage" fitHeight="487.0" fitWidth="467.0" layoutX="-19.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/loginimage.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="120.0" layoutY="53.0" text="JMBank">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="109.0" stroke="TRANSPARENT" strokeType="INSIDE" width="800.0">
+         <fill>
+            <LinearGradient>
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.12941177189350128" green="1.0" blue="0.9411764740943909" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.20392157137393951" green="1.0" blue="0.4431372582912445" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcWidth="5.0" fill="#bff4ff" height="568.0" layoutX="416.0" layoutY="147.0" stroke="BLACK" strokeType="INSIDE" width="346.0" />
+   <ImageView fx:id="loginImage" fitHeight="487.0" fitWidth="467.0" layoutX="-18.0" layoutY="173.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@../Images/loginimage.png"/>
+   </ImageView>
+      <Label layoutX="116.0" layoutY="23.0" text="JMBank">
          <font>
-            <Font size="50.0" />
+            <Font name="System Bold" size="50.0" />
          </font>
       </Label>
       <Label fx:id="loginLabel" layoutX="457.0" layoutY="176.0" text="Please enter your login details">
@@ -33,12 +52,12 @@
          </font>
       </Label>
       <TextField fx:id="usernameTextField" editable="false" layoutX="448.0" layoutY="255.0" prefHeight="30.0" prefWidth="281.0" />
-      <Label layoutX="40.0" layoutY="658.0" prefHeight="37.0" prefWidth="346.0" text="&quot;Not for profit, but instead for people&quot;">
+      <Label layoutX="42.0" layoutY="686.0" prefHeight="37.0" prefWidth="346.0" text="&quot;Not for profit, but instead for people&quot;">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="191.0" layoutY="704.0" text="Project by James Mosey">
+      <Label layoutX="193.0" layoutY="732.0" text="Project by James Mosey">
          <font>
             <Font size="16.0" />
          </font>
@@ -54,13 +73,12 @@
       <Button fx:id="nineBtn" layoutX="673.0" layoutY="482.0" mnemonicParsing="false" onAction="#handleNumberButton" prefHeight="52.0" prefWidth="58.0" text="9" />
       <Button fx:id="eightBtn" layoutX="562.0" layoutY="482.0" mnemonicParsing="false" onAction="#handleNumberButton" prefHeight="52.0" prefWidth="58.0" text="8" />
       <Button fx:id="zeroBtn" layoutX="451.0" layoutY="562.0" mnemonicParsing="false" onAction="#handleNumberButton" prefHeight="52.0" prefWidth="58.0" text="0" />
-      <Button fx:id="confirmBtn" layoutX="450.0" layoutY="643.0" mnemonicParsing="false" onAction="#handleConfirmButton" prefHeight="52.0" prefWidth="281.0" text="Confirm" />
-      <Button fx:id="clearBtn" layoutX="560.0" layoutY="562.0" mnemonicParsing="false" onAction="#clearInput" prefHeight="52.0" prefWidth="170.0" text="Clear" />
+      <Button fx:id="confirmbtn" layoutX="450.0" layoutY="643.0" mnemonicParsing="false" onAction="#handleConfirmButton" prefHeight="52.0" prefWidth="281.0" text="Confirm" />
+      <Button fx:id="clearbtn" layoutX="560.0" layoutY="562.0" mnemonicParsing="false" onAction="#clearInput" prefHeight="52.0" prefWidth="170.0" text="Clear" />
       <Label fx:id="inputLabel1" layoutX="450.0" layoutY="235.0" prefHeight="20.0" prefWidth="169.0" text="4-Digit PIN Number:" visible="false">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <TextField fx:id="passwordTextField" editable="false" layoutX="448.0" layoutY="255.0" prefHeight="30.0" prefWidth="281.0" visible="false" />
-   </children>
 </AnchorPane>

@@ -9,10 +9,6 @@ import java.util.Objects;
 
 public class SceneSwitch {
 
-    public SceneSwitch() {
-        // Default Constructor
-    }
-
     public SceneSwitch(AnchorPane currentAnchorPane, String fxml) throws IOException {
         // Retrieves and loads data from the chosen FXML file
         AnchorPane nextAnchorPane = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));

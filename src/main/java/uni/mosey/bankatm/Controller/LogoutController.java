@@ -1,8 +1,8 @@
 package uni.mosey.bankatm.Controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import uni.mosey.bankatm.Model.SceneSwitch;
@@ -11,12 +11,10 @@ import java.io.IOException;
 
 public class LogoutController {
 
-    @FXML
-    private Button cancelBtn;
-    @FXML
-    private Button signOutBtn;
-    @FXML
-    private Button signOutExitBtn;
+    public Label signoutLabel;
+    public Button signOutBtn;
+    public Button signOutExitBtn;
+    public Button cancelBtn;
     @FXML
     private AnchorPane logoutAnchorPane;
 
@@ -28,7 +26,7 @@ public class LogoutController {
     }
 
     @FXML   // Closes the application when the quit button is clicked
-    void userSignOutQuit(ActionEvent event) throws IOException {
+    void userSignOutQuit() {
         stage = (Stage) logoutAnchorPane.getScene().getWindow();
         stage.close();
     }
