@@ -45,9 +45,15 @@ public class DashboardController implements Initializable {
     private TextField inputField;
     double initialBalance;
     private double currentBalance;
-
     private final AccountManager accountManager = AccountManager.getInstance();
 
+    /***
+     * Initialises the UI elements with the currently logged-in user's information (name + initial balance),
+     * as well as disallowing keyboard input into the input field, forcing button use only.
+     * @param url Represents the location of the FXML file associated with this controller class.
+     * @param resourceBundle Inherited parameter from the 'Initializable' interface, used to provide
+     *                       localised versions of text and resource. Unused in this method.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String loggedInUsername = DataSingleton.getInstance().getUsername();
@@ -60,8 +66,16 @@ public class DashboardController implements Initializable {
         String formattedBalance = String.format("%.2f", initialBalance);
         // Set the text of the balanceLabel to show the formatted initial balance
         balanceLabel.setText(formattedBalance);
+        // Disallows keyboard input into the text field, forcing button use only.
+        inputField.setEditable(false);
     }
 
+    /***
+     * Method called when the deposit button is clicked, which adds whatever number is in the input field
+     * to the current balance of the account. Contains some rules for input (only one decimal place, requires
+     * a number larger than zero to be deposited). Also provides a message to let the user know if their deposit
+     * was successful or not.
+     */
     public void depositClick() {
         // Check if currentBalance is initialized, if not, initialize it with the initial balance
         if (currentBalance == 0.0) {
@@ -85,6 +99,12 @@ public class DashboardController implements Initializable {
         inputField.clear();
     }
 
+    /***
+     * Method called when the withdrawal button is clicked, which subtracts whatever number is in the input field
+     * from the current balance of the account. Contains some rules for input (only one decimal place,
+     * requires a number larger than zero to be withdrawn, cannot withdraw more than what is in the account).
+     * Also provides a message to let the user know if their withdrawal was successful or not.
+     */
     public void withdrawClick() {
         // Check if currentBalance is initialized, if not, initialize it with the initial balance
         if (currentBalance == 0.0) {
@@ -115,6 +135,12 @@ public class DashboardController implements Initializable {
         inputField.clear();
     }
 
+    /***
+     * This method is assigned to each of the number buttons (including '.'), it takes the text displayed on the
+     * button (the number or decimal point) and outputs it into the input field. This method also stops the user
+     * from entering more than one decimal place per transaction, which would lead to errors.
+     * @param event This parameter allows the method to receive information about the event (which button was clicked).
+     */
     @FXML
     private void dashboardNumberButton(ActionEvent event) {
         Button button = (Button) event.getSource();
@@ -132,11 +158,18 @@ public class DashboardController implements Initializable {
         }
     }
 
+    /***
+     * Simple method to clear the input field, in the case of a mis-input. Assigned to the 'clear' button.
+     */
     @FXML
     private void clearInputField() {
         inputField.clear();
     }
 
+    /***
+     * Method assigned to the logout button, takes the user to the logout page.
+     * @throws IOException Throws input/output exception in the case that there is a problem with the FXML file.
+     */
     @FXML
     void userLogout() throws IOException {
         new SceneSwitch(dashboardAnchorPane, "view/logout-page.fxml");

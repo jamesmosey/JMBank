@@ -7,12 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import uni.mosey.bankatm.Model.AccountManager;
 import uni.mosey.bankatm.Model.BankAccount;
 import uni.mosey.bankatm.Model.DataSingleton;
 import uni.mosey.bankatm.Model.SceneSwitch;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 public class LoginController {
@@ -47,25 +47,28 @@ public class LoginController {
     @FXML
     private AnchorPane loginPageAnchorPane;
 
+    // This class accesses the hashmap through an instance of the 'AccountManager' class.
+    private final AccountManager accountManager = AccountManager.getInstance();
     // Creating the HashMap for storing relations between Accounts + Passwords + Initial balances
-    private final Map<String, BankAccount> accountMap = new HashMap<>();
+    private final Map<String, BankAccount> accountMap = accountManager.getAccountMap();
     // Stores the name of the person currently logged in as a string
     private String currentAccount;
 
-    public LoginController() {
-        // Initialize the account-password mapping
-        accountMap.put("1234", new BankAccount("Alice", "4321", 1000.00));
-        accountMap.put("0420", new BankAccount("Bob", "0240", 2000.00));
-        accountMap.put("1351", new BankAccount("Charlie", "1531", 3000.00));
-    }
-
-    // Method for the CLEAR button, clears all current inputs
+    /***
+     * Simple method assigned to the clear button of the login and pin pages. Clears all input from the text fields.
+     */
     @FXML
     private void clearInput() {
         usernameTextField.clear();
         passwordTextField.clear();
     }
 
+    /***
+     * This method is assigned to each of the number buttons, it takes the text displayed on the button (the number)
+     * and outputs it into the input field. This method only lets the user enter 4 numbers per field, so they cannot
+     * go beyond the account number/pin limit.
+     * @param event This parameter allows the method to receive information about the event (which button was clicked).
+     */
     @FXML
     private void handleNumberButton(ActionEvent event) {
         Button button = (Button) event.getSource();
@@ -87,7 +90,13 @@ public class LoginController {
         }
     }
 
-
+    /***
+     * This method is assigned to the confirm button, which runs checks to make sure a valid account number and pin are
+     * entered, and that the account number and pin match in the hashmap where they are linked. If the account number/pin
+     * is invalid OR they account number and pin don't match, an error will be displayed to the user. If they are valid
+     * and match, the user will be logged in and taken to the dashboard.
+     * @throws IOException Input/output exception is thrown in the case that there is an issue with the FXML file.
+     */
     @FXML
     private void handleConfirmButton() throws IOException {
         if (usernameTextField.isVisible()) {

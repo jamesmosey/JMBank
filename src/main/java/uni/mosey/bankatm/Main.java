@@ -9,6 +9,19 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Main extends Application {
+
+    /***
+     * Initialises the JavaFX application, loads the user interface layout from an FXML file,
+     * applies CSS styling, configures the primary stage, and displays the stage with the
+     * initial scene.
+     * @param stage the primary stage for this application, onto which
+     * the application scene can be set.
+     * Applications may create other stages, if needed, but they will not be
+     * primary stages.
+     * @throws IOException Notifies the caller of an input/output exception, if
+     * there should be one. The only possible error thrown would be with the FXMLLoader,
+     * therefore a try/catch block would not suffice.
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/login-page.fxml"));
@@ -24,6 +37,10 @@ public class Main extends Application {
         stage.show();
     }
 
+    /***
+     * Launches the JavaFX application, which triggers the executing of the 'start' method.
+     * @param args command-line arguments
+     */
     public static void main(String[] args) {
         launch();
     }
