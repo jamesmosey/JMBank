@@ -50,6 +50,7 @@ public class LoginController {
     // This class accesses the hashmap through an instance of the 'AccountManager' class.
     private final AccountManager accountManager = AccountManager.getInstance();
     private final Map<String, BankAccount> accountMap = accountManager.getAccountMap();
+
     // Stores the name of the person currently logged in as a string
     private String currentAccount;
 

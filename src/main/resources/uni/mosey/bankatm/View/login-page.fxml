@@ -32,9 +32,8 @@
          </fill>
       </Rectangle>
       <Rectangle arcWidth="5.0" fill="#bff4ff" height="568.0" layoutX="416.0" layoutY="147.0" stroke="BLACK" strokeType="INSIDE" width="346.0" />
-   <ImageView fx:id="loginImage" fitHeight="487.0" fitWidth="467.0" layoutX="-18.0" layoutY="173.0" pickOnBounds="true"
-              preserveRatio="true">
-      <Image url="@../Images/loginimage.png"/>
+   <ImageView fx:id="loginImage" fitHeight="487.0" fitWidth="467.0" layoutX="-18.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../Images/loginimage.png" />
    </ImageView>
       <Label layoutX="116.0" layoutY="23.0" text="JMBank">
          <font>
@@ -81,4 +80,24 @@
          </font>
       </Label>
       <TextField fx:id="passwordTextField" editable="false" layoutX="448.0" layoutY="255.0" prefHeight="30.0" prefWidth="281.0" visible="false" />
+   <Label layoutX="416.0" prefHeight="37.0" prefWidth="203.0" text="Default Account Logins:">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="416.0" layoutY="25.0" prefHeight="37.0" prefWidth="378.0" text="1) Account Number: 1234   PIN: 4321">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="416.0" layoutY="50.0" prefHeight="37.0" prefWidth="378.0" text="2) Account Number: 1351   PIN: 1531">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="416.0" layoutY="76.0" prefHeight="37.0" prefWidth="378.0" text="3) Account Number: 0420   PIN: 0240">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
 </AnchorPane>
